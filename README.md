@@ -37,6 +37,54 @@ A modern, responsive website for distributing and promoting the Event Sentinel D
    - Your site will be available at: `https://yourusername.github.io/Event-Sentinel-Bot-Website/`
    - It may take a few minutes for the site to be live
 
+### Setting Up a Custom Domain
+
+To use a custom domain (e.g., `eventsentinel.com` or `www.eventsentinel.com`) with GitHub Pages:
+
+1. **Update the CNAME file:**
+   - Edit the `CNAME` file in the root of your repository
+   - Replace `example.com` with your actual domain name
+   - For a subdomain (e.g., `www`), use: `www.yourdomain.com`
+   - For the apex domain (e.g., `yourdomain.com`), use: `yourdomain.com`
+   - **Important:** The CNAME file should contain ONLY your domain name, nothing else (no `http://` or `https://`)
+
+2. **Configure DNS Records:**
+   
+   **For a subdomain (www.yourdomain.com):**
+   - Add a `CNAME` record:
+     - **Name:** `www` (or your subdomain)
+     - **Value:** `yourusername.github.io`
+     - **TTL:** 3600 (or default)
+
+   **For an apex domain (yourdomain.com):**
+   - Option A: Use ALIAS/ANAME record (if your DNS provider supports it):
+     - **Name:** `@` or leave blank
+     - **Value:** `yourusername.github.io`
+   - Option B: Use A records (if ALIAS not available):
+     - Add 4 A records pointing to GitHub Pages IPs:
+       - `185.199.108.153`
+       - `185.199.109.153`
+       - `185.199.110.153`
+       - `185.199.111.153`
+
+3. **Enable Custom Domain in GitHub:**
+   - Go to your repository **Settings** → **Pages**
+   - In the **Custom domain** field, enter your domain (e.g., `www.yourdomain.com`)
+   - Check **Enforce HTTPS** (GitHub will automatically provision SSL certificate)
+   - Click **Save**
+
+4. **Wait for DNS Propagation:**
+   - DNS changes can take 24-48 hours to propagate globally
+   - You can check propagation status using tools like `whatsmydns.net`
+   - GitHub will verify your domain and provision SSL automatically
+
+5. **Verify Setup:**
+   - Once DNS has propagated, your site will be accessible at your custom domain
+   - GitHub Pages will automatically redirect from `yourusername.github.io` to your custom domain
+   - SSL certificate will be automatically provisioned (may take a few hours)
+
+**Note:** If you're using both `www` and apex domain, you'll need to choose one as the primary in the CNAME file. GitHub Pages supports one custom domain per repository.
+
 ### Option 2: Using GitHub Actions (Advanced)
 
 If you want more control over the deployment process, you can use GitHub Actions. However, for a static HTML site, the automatic method above is sufficient.
@@ -82,6 +130,7 @@ Event-Sentinel-Bot-Website/
 ├── index.html          # Main HTML file
 ├── styles.css          # All styling
 ├── script.js           # JavaScript for interactivity
+├── CNAME               # Custom domain configuration
 └── README.md           # This file
 ```
 
