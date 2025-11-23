@@ -1,6 +1,6 @@
 # Event Sentinel Bot Website
 
-A modern, responsive website for distributing and promoting the Event Sentinel Discord bot. This website is designed to be hosted on GitHub Pages.
+A modern, responsive website for distributing and promoting the Event Sentinel Discord bot - a professional event logger that tracks all major server events using rich, detailed embeds. This website is designed to be hosted on GitHub Pages.
 
 ## Features
 
@@ -56,9 +56,10 @@ Search for these in `index.html`:
 ### Customize Content
 
 - **Bot Name:** Update "Event Sentinel" throughout the site if needed
-- **Features:** Modify the features section in `index.html` to match your bot's actual features
-- **Commands:** Update the command list in the Usage section
+- **Features:** The features section accurately reflects the bot's event logging categories (Moderation, Voice, Messages, Channels, Roles, Server)
+- **Commands:** Currently displays the `/setlogchannel` command - add more if the bot gains additional commands
 - **Colors:** Adjust CSS variables in `styles.css` to match your brand
+- **GitHub Links:** All GitHub repository links are already updated to `hugsndnugs/Event-Sentinel-bot-main`
 
 ### Color Scheme
 
@@ -113,5 +114,5 @@ For issues or questions:
 
 ---
 
-**Note:** Remember to update all placeholder links and information before deploying to GitHub Pages!
+**Note:** The website has been configured with the correct GitHub repository links (`hugsndnugs/Event-Sentinel-bot-main`) and accurately reflects the Event Sentinel bot's functionality as an event logger. All content matches the bot's README.
 

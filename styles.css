@@ -264,6 +264,27 @@ body {
     line-height: 1.8;
 }
 
+.features-highlight {
+    margin-top: 3rem;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.features-highlight h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.features-highlight p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
 /* Installation Section */
 .installation {
     padding: 6rem 0;
@@ -302,6 +323,45 @@ body {
 }
 
 .step-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.step-content code {
+    background: var(--bg-tertiary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: var(--secondary-color);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.step-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.step-content a:hover {
+    text-decoration: underline;
+}
+
+.installation-note {
+    margin-top: 3rem;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--primary-color);
+    text-align: center;
+}
+
+.installation-note h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.installation-note p {
     color: var(--text-secondary);
     line-height: 1.8;
 }
@@ -440,6 +500,7 @@ body {
 .requirements ul {
     list-style: none;
     padding-left: 0;
+    margin-bottom: 2rem;
 }
 
 .requirements li {
@@ -455,6 +516,17 @@ body {
     left: 0;
     color: var(--secondary-color);
     font-weight: bold;
+}
+
+.requirements h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.requirements h3:first-child {
+    margin-top: 0;
 }
 
 /* Footer */
