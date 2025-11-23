@@ -438,6 +438,7 @@ body {
 /* Pricing Section */
 .pricing {
     padding: 6rem 0;
+    padding-top: 8rem;
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
     position: relative;
     overflow: hidden;
@@ -476,6 +477,7 @@ body {
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    padding-top: 2rem;
 }
 
 .pricing-card {
@@ -483,28 +485,14 @@ body {
     border: 2px solid var(--border-color);
     border-radius: 24px;
     padding: 2.5rem;
+    padding-top: 3rem;
     position: relative;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
     backdrop-filter: blur(10px);
-}
-
-.pricing-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.pricing-card:hover::before {
-    opacity: 1;
+    margin-top: 1.5rem;
 }
 
 .pricing-card:hover {
@@ -523,11 +511,8 @@ body {
         inset 0 0 30px rgba(88, 101, 242, 0.1);
     transform: scale(1.08);
     z-index: 2;
-}
-
-.pricing-card.featured::before {
-    opacity: 1;
-    height: 5px;
+    margin-top: 2rem;
+    padding-top: 3.5rem;
 }
 
 .pricing-card.featured:hover {
