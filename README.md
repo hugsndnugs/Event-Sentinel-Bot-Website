@@ -10,6 +10,9 @@ A modern, responsive website for distributing and promoting the Event Sentinel D
 - 🚀 Fast loading and optimized
 - 📖 Clear installation and usage instructions
 - 🔗 Easy integration with GitHub Pages
+- 👤 Subscriber portal with authentication
+- 💳 Subscription management system
+- 🤖 Bot token submission and tracking
 
 ## Setup for GitHub Pages
 
@@ -127,10 +130,14 @@ The website uses a Discord-inspired color scheme. You can customize it by modify
 ```
 Event-Sentinel-Bot-Website/
 │
-├── index.html          # Main HTML file
+├── index.html          # Main HTML file (landing page)
+├── portal.html         # Subscriber portal page
 ├── styles.css          # All styling
-├── script.js           # JavaScript for interactivity
+├── portal.css          # Portal-specific styles
+├── script.js           # JavaScript for main site interactivity
+├── portal.js           # Portal authentication and dashboard logic
 ├── CNAME               # Custom domain configuration
+├── TODOS.md            # Project TODO list and status
 └── README.md           # This file
 ```
 
@@ -163,5 +170,49 @@ For issues or questions:
 
 ---
 
-**Note:** The website has been configured with the correct GitHub repository links (`hugsndnugs/Event-Sentinel-bot-main`) and accurately reflects the Event Sentinel bot's functionality as an event logger. All content matches the bot's README.
+## Subscriber Portal
+
+The website includes a fully functional subscriber portal (`portal.html`) that allows users to:
+
+- **Register/Login**: Create an account or sign in to existing accounts
+- **Subscription Management**: View subscription status, plan details, and billing information
+- **Bot Token Submission**: Submit Discord bot tokens for bot instance setup
+- **Status Tracking**: Monitor bot instance setup progress with visual indicators
+- **Invite Link Management**: Receive and copy bot invite links when bot is ready
+
+### Portal Features
+
+- **Authentication System**: LocalStorage-based user authentication (for demo purposes)
+- **Dashboard**: Comprehensive dashboard showing subscription and bot status
+- **Token Validation**: Basic validation for Discord bot tokens
+- **Progress Tracking**: Visual progress indicators for bot setup stages
+- **Responsive Design**: Fully responsive portal matching main site design
+
+### Subscription Flow
+
+1. User clicks "Subscribe Now" on pricing cards → Redirects to portal
+2. User registers with email, password, and selects a plan
+3. User is logged in and sees dashboard
+4. User submits Discord bot token through portal
+5. System tracks bot setup progress (pending → configuring → ready)
+6. User receives invite link when bot is ready
+
+**Note:** The current implementation uses localStorage for demo purposes. In production, this should be replaced with a proper backend API and database.
+
+## Analytics Integration
+
+The website includes a placeholder for analytics integration in `index.html`. To add analytics:
+
+1. Uncomment the appropriate analytics code block
+2. Replace placeholder values with your actual analytics IDs
+3. Options include:
+   - Google Analytics (gtag.js)
+   - Plausible Analytics
+   - Other privacy-focused analytics services
+
+## Deployment URL
+
+After deploying to GitHub Pages, update the canonical URL and Open Graph meta tags in `index.html` with your actual deployment URL.
+
+**Note:** The website has been configured with the correct GitHub repository links (`hugsndnugs/Event-Sentinel`) and accurately reflects the Event Sentinel bot's functionality as an event logger. All content matches the bot's README.
 

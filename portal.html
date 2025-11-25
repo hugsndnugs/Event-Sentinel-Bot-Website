@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Subscriber Portal - Event Sentinel Bot</title>
+    <meta name="title" content="Subscriber Portal - Event Sentinel Bot">
+    <meta name="description" content="Manage your Event Sentinel Bot subscription, submit your bot token, and track your bot instance status.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="portal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none;">
+                    <h1>Event Sentinel</h1>
+                </a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu" role="menubar">
+                <li role="none"><a href="index.html#features" role="menuitem">Features</a></li>
+                <li role="none"><a href="index.html#pricing" role="menuitem">Pricing</a></li>
+                <li role="none"><a href="index.html#faq" role="menuitem">FAQ</a></li>
+                <li role="none"><a href="portal.html" class="btn-primary" role="menuitem">Portal</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Login/Register Section (shown when not authenticated) -->
+        <section id="auth-section" class="auth-section" aria-labelledby="auth-title">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="login" aria-selected="true" role="tab">Login</button>
+                        <button class="auth-tab" data-tab="register" aria-selected="false" role="tab">Register</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div id="login-form" class="auth-form active" role="tabpanel" aria-labelledby="login-tab">
+                        <h2 id="auth-title">Welcome Back</h2>
+                        <p class="auth-subtitle">Sign in to access your subscriber portal</p>
+                        <form id="loginForm" onsubmit="handleLogin(event)">
+                            <div class="form-group">
+                                <label for="login-email">Email Address</label>
+                                <input 
+                                    type="email" 
+                                    id="login-email" 
+                                    name="email" 
+                                    required 
+                                    autocomplete="email"
+                                    aria-required="true"
+                                    placeholder="your.email@example.com"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <input 
+                                    type="password" 
+                                    id="login-password" 
+                                    name="password" 
+                                    required 
+                                    autocomplete="current-password"
+                                    aria-required="true"
+                                    placeholder="Enter your password"
+                                >
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large btn-full">Sign In</button>
+                        </form>
+                        <div id="login-error" class="error-message" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div id="register-form" class="auth-form" role="tabpanel" aria-labelledby="register-tab">
+                        <h2>Create Account</h2>
+                        <p class="auth-subtitle">Sign up to get started with Event Sentinel</p>
+                        <form id="registerForm" onsubmit="handleRegister(event)">
+                            <div class="form-group">
+                                <label for="register-name">Full Name</label>
+                                <input 
+                                    type="text" 
+                                    id="register-name" 
+                                    name="name" 
+                                    required 
+                                    autocomplete="name"
+                                    aria-required="true"
+                                    placeholder="John Doe"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="register-email">Email Address</label>
+                                <input 
+                                    type="email" 
+                                    id="register-email" 
+                                    name="email" 
+                                    required 
+                                    autocomplete="email"
+                                    aria-required="true"
+                                    placeholder="your.email@example.com"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="register-password">Password</label>
+                                <input 
+                                    type="password" 
+                                    id="register-password" 
+                                    name="password" 
+                                    required 
+                                    autocomplete="new-password"
+                                    aria-required="true"
+                                    minlength="8"
+                                    placeholder="Minimum 8 characters"
+                                >
+                                <small class="form-hint">Password must be at least 8 characters long</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-plan">Subscription Plan</label>
+                                <select id="register-plan" name="plan" required aria-required="true">
+                                    <option value="">Select a plan</option>
+                                    <option value="basic">Basic - $9.99/month</option>
+                                    <option value="professional">Professional - $19.99/month</option>
+                                    <option value="enterprise">Enterprise - $39.99/month</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large btn-full">Create Account</button>
+                        </form>
+                        <div id="register-error" class="error-message" role="alert" aria-live="polite"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section (shown when authenticated) -->
+        <section id="dashboard-section" class="dashboard-section" aria-labelledby="dashboard-title" style="display: none;">
+            <div class="container">
+                <div class="dashboard-header">
+                    <div>
+                        <h1 id="dashboard-title">Subscriber Dashboard</h1>
+                        <p class="dashboard-subtitle">Welcome back, <span id="user-name">User</span>!</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="handleLogout()" aria-label="Logout">Logout</button>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Subscription Status Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h2>Subscription Status</h2>
+                            <span id="subscription-badge" class="status-badge">Active</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="status-item">
+                                <span class="status-label">Plan:</span>
+                                <span id="subscription-plan" class="status-value">Basic</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Status:</span>
+                                <span id="subscription-status" class="status-value">Active</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Billing Cycle:</span>
+                                <span id="billing-cycle" class="status-value">Monthly</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Next Billing Date:</span>
+                                <span id="next-billing" class="status-value">--</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Subscription Date:</span>
+                                <span id="subscription-date" class="status-value">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bot Instance Status Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h2>Bot Instance Status</h2>
+                            <span id="bot-status-badge" class="status-badge status-pending">Pending</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="status-item">
+                                <span class="status-label">Status:</span>
+                                <span id="bot-status" class="status-value">Not Configured</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Token Submitted:</span>
+                                <span id="token-submitted" class="status-value">No</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Setup Progress:</span>
+                                <div class="progress-bar">
+                                    <div id="setup-progress" class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span id="progress-text" class="progress-text">0%</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Last Updated:</span>
+                                <span id="last-updated" class="status-value">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bot Token Submission Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h2>Bot Token Submission</h2>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">Submit your Discord bot token to set up your custom Event Sentinel bot instance. We'll use this token to configure and host your bot.</p>
+                            
+                            <form id="token-form" onsubmit="handleTokenSubmit(event)">
+                                <div class="form-group">
+                                    <label for="bot-token">Discord Bot Token</label>
+                                    <input 
+                                        type="password" 
+                                        id="bot-token" 
+                                        name="token" 
+                                        required
+                                        aria-required="true"
+                                        placeholder="Enter your Discord bot token"
+                                        autocomplete="off"
+                                    >
+                                    <small class="form-hint">
+                                        <a href="https://discord.com/developers/applications" target="_blank" rel="noopener noreferrer">
+                                            Get your bot token from Discord Developer Portal
+                                        </a>
+                                    </small>
+                                </div>
+                                <div id="token-status" class="token-status" role="alert" aria-live="polite"></div>
+                                <button type="submit" class="btn btn-primary btn-full" id="token-submit-btn">
+                                    Submit Token
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Invite Link Card -->
+                    <div class="dashboard-card" id="invite-card" style="display: none;">
+                        <div class="card-header">
+                            <h2>Bot Invite Link</h2>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">Your bot is ready! Use the invite link below to add Event Sentinel to your Discord server.</p>
+                            
+                            <div class="invite-link-container">
+                                <input 
+                                    type="text" 
+                                    id="invite-link" 
+                                    class="invite-link-input" 
+                                    readonly
+                                    value=""
+                                    aria-label="Bot invite link"
+                                >
+                                <button 
+                                    class="btn btn-secondary" 
+                                    onclick="copyInviteLink()"
+                                    aria-label="Copy invite link"
+                                >
+                                    Copy
+                                </button>
+                            </div>
+                            
+                            <div class="invite-instructions">
+                                <h3>Instructions:</h3>
+                                <ol>
+                                    <li>Click the "Copy" button above</li>
+                                    <li>Open the invite link in your browser</li>
+                                    <li>Select the Discord server where you want to add the bot</li>
+                                    <li>Authorize the bot with required permissions</li>
+                                    <li>Use <code>/setlogchannel</code> to configure your log channel</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h2>Quick Actions</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="action-buttons">
+                                <a href="index.html#pricing" class="btn btn-secondary btn-full">Manage Subscription</a>
+                                <a href="index.html#faq" class="btn btn-secondary btn-full">View FAQ</a>
+                                <a href="mailto:support@eventsentinel.com" class="btn btn-secondary btn-full">Contact Support</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Event Sentinel</h3>
+                    <p>Professional Discord event logging solution</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="portal.html">Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="mailto:support@eventsentinel.com">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Event Sentinel Bot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="portal.js"></script>
+</body>
+</html>
+
