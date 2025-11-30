@@ -151,6 +151,11 @@
                     <h3>Server Events</h3>
                     <p>Log server setting updates and invite creation/deletion to keep track of all server-wide changes.</p>
                 </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✉️</div>
+                    <h3>Modmail System</h3>
+                    <p>Professional modmail system allowing users to contact moderators via DMs. Creates organized threads for each conversation, logs all interactions, and provides seamless communication between users and staff.</p>
+                </div>
             </div>
             <div class="features-highlight">
                 <h3>Rich Embed Design</h3>
@@ -199,8 +204,8 @@
                 <div class="step">
                     <div class="step-number">5</div>
                     <div class="step-content">
-                        <h3>Configure Log Channel</h3>
-                        <p>Use the <code>/setlogchannel</code> command in your Discord server (admin only) to select where events will be logged. The bot is already online and ready to use - just configure your preferences!</p>
+                        <h3>Configure Log Channel & Modmail</h3>
+                        <p>Use the <code>/setlogchannel</code> command in your Discord server (admin only) to select where events will be logged. Optionally, configure modmail by using <code>/setmodmailchannel</code> to set up a channel where modmail threads will be created. The bot is already online and ready to use - just configure your preferences!</p>
                     </div>
                 </div>
             </div>
@@ -226,12 +231,22 @@
                         <code>/setlogchannel &lt;channel&gt;</code>
                         <p>Set the log channel for event logging (Admin only). Select the channel where you want events to be logged for this specific server.</p>
                     </div>
+                    <div class="command-item">
+                        <code>/setmodmailchannel &lt;channel&gt;</code>
+                        <p>Configure the modmail channel where modmail threads will be created (Admin only). This is where staff will see and respond to user messages.</p>
+                    </div>
+                    <div class="command-item">
+                        <code>/modmail close</code>
+                        <p>Close an active modmail thread (Staff only). Use this command in a modmail thread to close the conversation.</p>
+                    </div>
                 </div>
                 <div class="usage-note">
                     <h3>Using the Bot</h3>
                     <p>The bot is already online and running on our servers 24/7. Once you've invited it to your server and configured the log channel, it will automatically start logging events. No need to run any commands or manage the bot - we handle all that for you!</p>
                     <h3>Configuration</h3>
-                    <p>Configure your log channel using <code>/setlogchannel</code> in your Discord server. The bot supports per-server configuration, so each server can have its own log channel. All settings are managed through Discord commands - no file editing required!</p>
+                    <p>Configure your log channel using <code>/setlogchannel</code> in your Discord server. Set up modmail by configuring a modmail channel with <code>/setmodmailchannel</code>. The bot supports per-server configuration, so each server can have its own log channel and modmail channel. All settings are managed through Discord commands - no file editing required!</p>
+                    <h3>Modmail System</h3>
+                    <p>Users can contact your server moderators by sending a direct message (DM) to the bot. The bot will automatically create a thread in your configured modmail channel, allowing staff to respond to users seamlessly. All modmail interactions are logged and organized for easy tracking. Staff can close modmail threads using <code>/modmail close</code> when the conversation is complete.</p>
                     <h3>Getting Help</h3>
                     <p>For issues, check: bot permissions, required intents are enabled, log channel is configured, and bot can send messages in the log channel. Visit the GitHub repository for detailed documentation and support.</p>
                 </div>
@@ -356,6 +371,10 @@
                 <div class="faq-item">
                     <h3>Can I upgrade or downgrade my plan?</h3>
                     <p>Yes! You can upgrade or downgrade your subscription at any time. Changes will be reflected in your next billing cycle.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How does the modmail system work?</h3>
+                    <p>Users can send a direct message (DM) to the bot to contact your server moderators. The bot automatically creates a thread in your configured modmail channel, allowing staff to respond to users seamlessly. All conversations are organized in threads, making it easy to track and manage user inquiries. Staff can close threads using <code>/modmail close</code> when conversations are complete.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Is there a free trial?</h3>

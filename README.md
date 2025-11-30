@@ -13,6 +13,7 @@ A modern, responsive website for distributing and promoting the Event Sentinel D
 - 👤 Subscriber portal with authentication
 - 💳 Subscription management system
 - 🤖 Bot token submission and tracking
+- ✉️ Modmail system documentation
 
 ## Setup for GitHub Pages
 
@@ -107,8 +108,8 @@ Search for these in `index.html`:
 ### Customize Content
 
 - **Bot Name:** Update "Event Sentinel" throughout the site if needed
-- **Features:** The features section accurately reflects the bot's event logging categories (Moderation, Voice, Messages, Channels, Roles, Server)
-- **Commands:** Currently displays the `/setlogchannel` command - add more if the bot gains additional commands
+- **Features:** The features section accurately reflects the bot's event logging categories (Moderation, Voice, Messages, Channels, Roles, Server) and modmail system
+- **Commands:** Displays `/setlogchannel`, `/setmodmailchannel`, and `/modmail close` commands - add more if the bot gains additional commands
 - **Colors:** Adjust CSS variables in `styles.css` to match your brand
 - **GitHub Links:** All GitHub repository links are already updated to `hugsndnugs/Event-Sentinel-bot-main`
 
